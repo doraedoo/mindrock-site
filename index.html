@@ -1,141 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Mindrock Smart Technology Limited</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  line-height:1.8;
-  color:#111;
-  background:#ffffff;
-}
-
-nav {
-  background:#0b1f3a;
-  padding:15px;
-  text-align:center;
-}
-
-nav a {
-  color:white;
-  margin:0 20px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-header {
-  padding:100px 20px;
-  text-align:center;
-  background:#0b1f3a;
-  color:white;
-}
-
-section {
-  padding:70px 20px;
-  max-width:900px;
-  margin:auto;
-}
-
-h2 {
-  margin-top:40px;
-}
-
-ul {
-  padding-left:20px;
-}
-
-footer {
-  background:#f5f5f5;
-  text-align:center;
-  padding:40px;
-  font-size:14px;
-  color:#555;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindrock | Professional Digital Asset Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #020617; 
+            font-family: 'Inter', sans-serif; 
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.3);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .glow-line {
+            background: linear-gradient(90deg, transparent, #00d2ff, transparent);
+            height: 1px;
+            width: 100%;
+        }
+    </style>
 </head>
+<body class="min-h-screen flex flex-col justify-between">
 
-<body>
+    <nav class="p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
+        <div class="text-xl tracking-[0.4em] font-light">MINDROCK</div>
+        <div class="hidden md:flex gap-8 text-xs tracking-widest text-slate-500">
+            <span>SOLUTIONS</span>
+            <span>COMPLIANCE</span>
+            <span>NETWORK</span>
+        </div>
+    </nav>
 
-<nav>
-<a href="#overview">Overview</a>
-<a href="#structure">Structure</a>
-<a href="#activities">Activities</a>
-<a href="#contact">Contact</a>
-</nav>
+    <main class="max-w-7xl mx-auto px-8 w-full flex-grow flex flex-col justify-center py-20">
+        
+        <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-extralight tracking-tight mb-6 leading-tight">
+                Architecting <span class="text-sky-400">Global Liquidity</span> <br>
+                for Digital Assets.
+            </h1>
+            <p class="text-slate-400 text-lg font-light mb-10 leading-relaxed max-w-2xl">
+                Mindrock provides institutional-grade cross-border settlement solutions, 
+                leveraging a dual-jurisdiction structure to bridge the gap between 
+                digital ecosystems and traditional capital markets.
+            </p>
+        </div>
 
-<header>
-<h1>Mindrock Smart Technology Limited</h1>
-<p>Technology-Oriented Strategic Holding & Advisory Platform</p>
-</header>
+        <div class="grid md:grid-cols-3 gap-6 mt-12">
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="text-sky-400 mb-4 text-xs tracking-tighter">01.</div>
+                <h3 class="text-sm tracking-widest mb-3 uppercase">Cross-Border Flow</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">Optimization of global liquidity paths via our dual-entity architecture in Wyoming and Hong Kong.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="text-sky-400 mb-4 text-xs tracking-tighter">02.</div>
+                <h3 class="text-sm tracking-widest mb-3 uppercase">Strategic Hubs</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">Technology-first infrastructure bridging US innovation with Asia-Pacific connectivity.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="text-sky-400 mb-4 text-xs tracking-tighter">03.</div>
+                <h3 class="text-sm tracking-widest mb-3 uppercase">Digital Custody</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">Secure, non-custodial settlement frameworks designed for institutional stability and transparency.</p>
+            </div>
+        </div>
 
-<section id="overview">
-<h2>Company Overview</h2>
+    </main>
 
-<p>
-Mindrock Smart Technology Limited is a Hong Kong incorporated company 
-focused on technology development and solution implementation.
-</p>
-
-<p>
-The company provides technology-driven solutions designed to enhance 
-operational efficiency, digital infrastructure integration, 
-and cross-border system coordination.
-</p>
-
-<p>
-Mindrock operates as an independent technology service provider 
-and does not engage in regulated financial services, investment solicitation, 
-or asset management activities.
-</p>
-</section>
-
-
-<section id="structure">
-<h2>Corporate Structure</h2>
-
-<p><strong>Primary Entity:</strong><br>
-Mindrock Smart Technology Limited – Hong Kong SAR
-</p>
-
-<p><strong>Supporting Entity:</strong><br>
-Mindrock Global Solutions LLC – United States
-</p>
-
-<p>
-The Hong Kong entity serves as the principal operating vehicle.
-The U.S. entity provides structural support and international coordination functions.
-</p>
-</section>
-
-<section id="activities">
-<h2>Core Activities</h2>
-
-<ul>
-<li>Technology solution design and implementation</li>
-<li>Digital infrastructure integration</li>
-<li>System architecture support</li>
-<li>Process automation and optimization</li>
-<li>Cross-border technology coordination</li>
-</ul>
-
-<p>
-All activities are conducted in accordance with applicable laws 
-and regulatory requirements of the relevant jurisdictions.
-</p>
-</section>
-
-
-<section id="contact">
-<h2>Contact</h2>
-<p>Email: info@mindrock.net</p>
-</section>
-
-<footer>
-© 2025 Mindrock Smart Technology Limited. All rights reserved.
-</footer>
+    <footer class="w-full">
+        <div class="glow-line opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div class="text-[10px] tracking-[0.2em] text-slate-600 uppercase">
+                Operated by Mindrock LLC (Wyoming, USA) & Mindrock Limited (Hong Kong)
+            </div>
+            <div class="flex gap-8 text-[10px] tracking-widest text-slate-400">
+                <a href="mailto:service@mindrock.net" class="hover:text-sky-400 transition-colors">CONTACT US</a>
+                <span>EST. 2026</span>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
