@@ -3,88 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindrock Smart Technology | Digital Architecture</title>
+    <title>Mindrock Smart Technology</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #020617; font-family: 'Inter', sans-serif; color: #f8fafc; }
+        body { 
+            background-color: #020617; 
+            font-family: 'Inter', sans-serif; 
+            color: #f8fafc;
+            /* 确保页面不滚动，且内容绝对居中 */
+            overflow-x: hidden;
+        }
         .glass-card {
             background: rgba(30, 41, 59, 0.2);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.03);
-            transition: all 0.4s ease;
         }
-        .glass-card:hover { border: 1px solid rgba(56, 189, 248, 0.2); transform: translateY(-4px); }
-        .nav-link { font-size: 0.75rem; letter-spacing: 0.2em; color: #64748b; transition: all 0.3s; }
-        .nav-link:hover { color: #38bdf8; }
+        /* 针对 Logo 的反向颜色处理 */
+        .logo-filter {
+            filter: invert(1) brightness(2);
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex items-center justify-center p-6">
 
-    <nav class="max-w-7xl mx-auto w-full px-8 pt-8 flex justify-end items-center">
-        <a href="mailto:info@mindrock.net" class="nav-link text-[10px] tracking-[0.3em] hover:text-sky-400 transition-all">CONTACT@MINDROCK.NET</a>
-    </nav>
-
-    <main class="max-w-7xl mx-auto px-8 w-full flex-grow flex flex-col justify-center py-12">
+    <div class="max-w-6xl w-full flex flex-col items-center text-center">
         
-        <div class="max-w-4xl">
-            <div class="mb-12">
-                <img src="logo.png.png" alt="Mindrock" class="h-24 md:h-32 w-auto invert brightness-200">
-            </div>
-
-            <h1 class="text-5xl md:text-8xl font-extralight tracking-tight mb-10 leading-[1.05]">
-                Engineering <span class="text-sky-400 font-normal">Digital Excellence</span> <br>
-                for Global Enterprises.
-            </h1>
-
-            <p class="text-slate-400 text-xl md:text-2xl font-light mb-16 leading-relaxed max-w-3xl border-l-2 border-sky-500/30 pl-8">
-                Mindrock Smart Technology Limited is a Hong Kong registered technology consultancy, 
-                specializing in institutional system architecture and workflow optimization.
-            </p>
+        <div class="mb-16">
+            <img src="logo.png.png" alt="Mindrock" class="h-32 md:h-48 w-auto logo-filter transition-all duration-700 hover:scale-105">
         </div>
 
-        <div class="grid md:grid-cols-3 gap-10 mt-8">
-            <div class="glass-card p-10 rounded-3xl">
-                <h3 class="text-xs tracking-[0.3em] mb-4 uppercase text-sky-400 font-semibold opacity-80">System Integration</h3>
-                <p class="text-sm text-slate-500 leading-relaxed font-light">Customizing digital infrastructure to unify complex workflows.</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl">
-                <h3 class="text-xs tracking-[0.3em] mb-4 uppercase text-sky-400 font-semibold opacity-80">Process Automation</h3>
-                <p class="text-sm text-slate-500 leading-relaxed font-light">Leveraging advanced logic to resolve friction in digital environments.</p>
-            </div>
-            <div class="glass-card p-10 rounded-3xl">
-                <h3 class="text-xs tracking-[0.3em] mb-4 uppercase text-sky-400 font-semibold opacity-80">Cloud Architecture</h3>
-                <p class="text-sm text-slate-500 leading-relaxed font-light">Designing scalable frameworks for sustainable global operations.</p>
-            </div>
-        </div>
-    </main>
+        <h1 class="text-4xl md:text-7xl font-extralight tracking-tight mb-8 leading-tight">
+            Engineering <span class="text-sky-400 font-normal">Digital Excellence</span> <br>
+            for Global Enterprises.
+        </h1>
 
-    <footer class="w-full border-t border-slate-900 bg-slate-950/80">
-        <div class="max-w-7xl mx-auto px-8 py-20">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-                <div class="space-y-5">
-                    <div class="text-xl tracking-[0.25em] text-white font-semibold uppercase">
-                        Mindrock Smart Technology Limited
-                    </div>
-                    <div class="text-base tracking-wide text-slate-500 max-w-xl leading-relaxed font-light">
-                        Hong Kong Registered Technology Consultancy. <br>
-                        Digital system design, workflow automation, and cross-border technical architecture.
-                    </div>
-                </div>
-                <div class="flex flex-col items-start md:items-end gap-4">
-                    <a href="mailto:info@mindrock.net" class="text-lg text-sky-400 hover:text-sky-300 transition-all font-medium tracking-widest border-b border-sky-400/20 pb-1">
-                        info@mindrock.net
-                    </a>
-                    <div class="text-sm tracking-[0.2em] text-slate-600">
-                        &copy; 2026 ALL RIGHTS RESERVED.
-                    </div>
-                </div>
+        <p class="text-slate-400 text-lg md:text-xl font-light mb-16 max-w-3xl leading-relaxed">
+            Mindrock Smart Technology Limited is a Hong Kong registered technology consultancy, 
+            specializing in institutional system architecture and workflow optimization.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 w-full max-w-5xl">
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="text-[10px] tracking-[0.3em] mb-3 uppercase text-sky-400 font-bold">System Integration</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">Tailored infrastructure for unified global workflows.</p>
             </div>
-            <div class="mt-16 pt-8 border-t border-white/5 text-[10px] tracking-[0.2em] text-slate-700 uppercase">
-                Disclaimer: Mindrock is a technology service provider and does not offer financial, regulated, or legal advice.
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="text-[10px] tracking-[0.3em] mb-3 uppercase text-sky-400 font-bold">Process Automation</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">Optimizing friction points in digital environments.</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl">
+                <h3 class="text-[10px] tracking-[0.3em] mb-3 uppercase text-sky-400 font-bold">Cloud Architecture</h3>
+                <p class="text-xs text-slate-500 leading-relaxed">Scalable frameworks for sustainable operations.</p>
             </div>
         </div>
-    </footer>
+
+        <div class="mt-20 flex flex-col items-center gap-4">
+            <a href="mailto:info@mindrock.net" class="text-sky-400 text-lg tracking-widest font-light hover:text-white transition-colors">
+                info@mindrock.net
+            </a>
+            <div class="text-[10px] tracking-[0.4em] text-slate-700 uppercase">
+                &copy; 2026 Mindrock Smart Technology Limited
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
