@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindrock | Professional Digital Asset Solutions</title>
+    <title>Mindrock Smart Technology | Digital Architecture & Consulting</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -13,76 +13,98 @@
             color: #f8fafc;
         }
         .glass-card {
-            background: rgba(30, 41, 59, 0.3);
+            background: rgba(30, 41, 59, 0.2);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card:hover {
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            transform: translateY(-2px);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            background: rgba(30, 41, 59, 0.4);
+            transform: translateY(-4px);
         }
-        .glow-line {
-            background: linear-gradient(90deg, transparent, #00d2ff, transparent);
-            height: 1px;
-            width: 100%;
+        .nav-link {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: #64748b;
+            transition: color 0.3s;
         }
+        .nav-link:hover { color: #f8fafc; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
     <nav class="p-8 flex justify-between items-center max-w-7xl mx-auto w-full">
-        <div class="text-xl tracking-[0.4em] font-light">MINDROCK</div>
-        <div class="hidden md:flex gap-8 text-xs tracking-widest text-slate-500">
-            <span>SOLUTIONS</span>
-            <span>COMPLIANCE</span>
-            <span>NETWORK</span>
+        <div class="flex items-center gap-4">
+            <img src="logo.png" alt="Mindrock Logo" class="h-8 w-auto opacity-90">
+            <span class="text-lg tracking-[0.3em] font-light ml-2 uppercase">Mindrock</span>
+        </div>
+        <div class="hidden md:flex gap-10">
+            <a href="#" class="nav-link">SOLUTIONS</a>
+            <a href="#" class="nav-link">CONSULTING</a>
+            <a href="mailto:info@mindrock.net" class="nav-link">CONTACT</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-8 w-full flex-grow flex flex-col justify-center py-20">
+    <main class="max-w-7xl mx-auto px-8 w-full flex-grow flex flex-col justify-center py-24">
         
-        <div class="max-w-3xl">
-            <h1 class="text-4xl md:text-6xl font-extralight tracking-tight mb-6 leading-tight">
-                Architecting <span class="text-sky-400">Global Liquidity</span> <br>
-                for Digital Assets.
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-extralight tracking-tight mb-8 leading-[1.1]">
+                Empowering Enterprise <br>
+                <span class="text-sky-400 font-normal">Digital Transformation.</span>
             </h1>
-            <p class="text-slate-400 text-lg font-light mb-10 leading-relaxed max-w-2xl">
-                Mindrock provides institutional-grade cross-border settlement solutions, 
-                leveraging a dual-jurisdiction structure to bridge the gap between 
-                digital ecosystems and traditional capital markets.
+            <p class="text-slate-400 text-xl font-light mb-12 leading-relaxed max-w-2xl">
+                Mindrock Smart Technology Limited is a premier technology consulting firm in Hong Kong, 
+                delivering tailored system architectures and digital process optimizations 
+                for global operational excellence.
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 mt-12">
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="text-sky-400 mb-4 text-xs tracking-tighter">01.</div>
-                <h3 class="text-sm tracking-widest mb-3 uppercase">Cross-Border Flow</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Optimization of global liquidity paths via our dual-entity architecture in Wyoming and Hong Kong.</p>
+        <div class="grid md:grid-cols-3 gap-8 mt-16">
+            <div class="glass-card p-10 rounded-3xl">
+                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <div class="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></div>
+                </div>
+                <h3 class="text-sm tracking-widest mb-4 uppercase font-medium">System Integration</h3>
+                <p class="text-xs text-slate-500 leading-relaxed font-light">Customizing digital infrastructure to unify complex workflows and enhance global operational data efficiency.</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="text-sky-400 mb-4 text-xs tracking-tighter">02.</div>
-                <h3 class="text-sm tracking-widest mb-3 uppercase">Strategic Hubs</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Technology-first infrastructure bridging US innovation with Asia-Pacific connectivity.</p>
+            <div class="glass-card p-10 rounded-3xl">
+                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <div class="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></div>
+                </div>
+                <h3 class="text-sm tracking-widest mb-4 uppercase font-medium">Process Optimization</h3>
+                <p class="text-xs text-slate-500 leading-relaxed font-light">Leveraging advanced analytics and systemic audits to resolve friction points in multinational digital environments.</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl">
-                <div class="text-sky-400 mb-4 text-xs tracking-tighter">03.</div>
-                <h3 class="text-sm tracking-widest mb-3 uppercase">Digital Custody</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Secure, non-custodial settlement frameworks designed for institutional stability and transparency.</p>
+            <div class="glass-card p-10 rounded-3xl">
+                <div class="w-10 h-10 bg-sky-500/10 rounded-lg flex items-center justify-center mb-6">
+                    <div class="w-2 h-2 bg-sky-400 rounded-full animate-pulse"></div>
+                </div>
+                <h3 class="text-sm tracking-widest mb-4 uppercase font-medium">Digital Strategy</h3>
+                <p class="text-xs text-slate-500 leading-relaxed font-light">Advising on scalable cloud frameworks and sustainable technology roadmaps for the modern enterprise.</p>
             </div>
         </div>
 
     </main>
 
-    <footer class="w-full">
-        <div class="glow-line opacity-20"></div>
-        <div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div class="text-[10px] tracking-[0.2em] text-slate-600 uppercase">
-                Operated by Mindrock LLC (Wyoming, USA) & Mindrock Limited (Hong Kong)
+    <footer class="w-full border-t border-slate-900/50">
+        <div class="max-w-7xl mx-auto px-8 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+                <div class="space-y-4">
+                    <div class="text-[11px] tracking-[0.3em] text-slate-300 font-medium uppercase">
+                        Mindrock Smart Technology Limited
+                    </div>
+                    <div class="text-[10px] tracking-widest text-slate-600 max-w-md leading-loose">
+                        Hong Kong Registered Technology Consultancy. Focused on digital system design, 
+                        workflow automation, and cross-border technical architecture.
+                    </div>
+                </div>
+                <div class="flex flex-col items-start md:items-end gap-2 text-[10px] tracking-widest text-slate-500">
+                    <a href="mailto:info@mindrock.net" class="text-sky-400 hover:underline">info@mindrock.net</a>
+                    <span>&copy; 2026 ALL RIGHTS RESERVED.</span>
+                </div>
             </div>
-            <div class="flex gap-8 text-[10px] tracking-widest text-slate-400">
-                <a href="mailto:service@mindrock.net" class="hover:text-sky-400 transition-colors">CONTACT US</a>
-                <span>EST. 2026</span>
+            <div class="mt-12 pt-8 border-t border-slate-900/30 text-[9px] tracking-widest text-slate-700 uppercase">
+                Disclaimer: Mindrock is a technology service provider and does not offer financial, regulated, or legal advice.
             </div>
         </div>
     </footer>
