@@ -3,98 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindrock | Digital Platform Services</title>
+    <title>Mindrock | Digital Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050810; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; }
+        :root { --main-blue: #38bdf8; }
+        body { background-color: #030610 !important; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; padding: 0; }
         
-        /* 1. Logo 调色与强力呼吸效果 - 增加亮度峰值 */
-        .logo-glow {
-            /* 调整滤镜使其保持蓝色并大幅提升白色亮度 */
-            filter: hue-rotate(185deg) brightness(1.5) drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));
-            animation: ultra-breathe 4s ease-in-out infinite;
+        /* 1. 终极 Logo 呼吸灯 - 针对蓝色同色深度优化 */
+        .mr-logo-blink {
+            /* 强制同色：调节色相至科技蓝并加高亮度 */
+            filter: hue-rotate(185deg) brightness(2) drop-shadow(0 0 10px var(--main-blue));
+            animation: blink-frame 3s ease-in-out infinite !important;
         }
 
-        @keyframes ultra-breathe {
-            0%, 100% { filter: brightness(2) drop-shadow(0 0 20px rgba(56, 189, 248, 0.6)); opacity: 1; }
-            50% { filter: brightness(4) drop-shadow(0 0 40px rgba(56, 189, 248, 0.9)); opacity: 0.9; }
+        @keyframes blink-frame {
+            0%, 100% { filter: hue-rotate(185deg) brightness(2.5) drop-shadow(0 0 15px var(--main-blue)); opacity: 1; }
+            50% { filter: hue-rotate(185deg) brightness(6) drop-shadow(0 0 45px var(--main-blue)); opacity: 0.8; }
         }
 
-        .glass-card {
+        .mr-glass {
             background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            background: rgba(15, 23, 42, 0.7);
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-start text-left">
+<body class="min-h-screen flex flex-col items-start px-8 md:px-20 py-12">
 
-    <nav class="w-full px-10 py-8 flex justify-between items-center max-w-7xl mx-auto">
-        <div class="flex items-center gap-4">
-            <img src="logo.png.png" alt="Mindrock" class="h-10 w-auto logo-glow">
-            <span class="text-sm tracking-[0.3em] font-light">MINDROCK</span>
-        </div>
-        <div class="hidden md:flex gap-10 text-[10px] tracking-[0.3em] text-slate-500 uppercase font-medium">
-            <span class="text-sky-400">Services</span>
-            <span>Infrastructure</span>
-            <span>Compliance</span>
-            <span class="text-slate-800">|</span>
-            <span class="hover:text-white transition-colors cursor-pointer">Vercel</span>
-        </div>
-    </nav>
+    <header class="w-full max-w-7xl mb-24 flex items-center gap-5">
+        <img src="logo.png.png" alt="Mindrock" class="h-10 md:h-12 w-auto mr-logo-blink">
+        <div class="h-6 w-px bg-slate-800"></div>
+        <span class="text-xs tracking-[0.4em] font-light text-slate-400">INTELLIGENT ARCHITECTURE</span>
+    </header>
 
-    <main class="w-full max-w-7xl mx-auto px-10 pt-16 pb-24">
-        
-        <h1 class="text-5xl md:text-8xl font-extralight tracking-tight leading-[1.1] mb-12">
+    <main class="w-full max-w-7xl">
+        <h1 class="text-5xl md:text-8xl font-extralight tracking-tight leading-tight mb-8">
             Architecting the <br>
             <span class="text-sky-400 font-normal">Future of Digital Flow.</span>
         </h1>
 
-        <h2 class="text-sky-400 text-2xl md:text-3xl font-light tracking-[0.2em] uppercase mb-8">
-            Mindrock Smart Technology Limited
-        </h2>
+        <div class="mb-12">
+            <h2 class="text-sky-400 text-2xl md:text-4xl font-light tracking-widest uppercase mb-4">
+                Mindrock Smart Technology Limited
+            </h2>
+            <div class="w-24 h-1 bg-sky-500/30"></div>
+        </div>
 
-        <p class="text-slate-400 text-lg md:text-xl font-light max-w-3xl leading-relaxed mb-20">
+        <p class="text-slate-400 text-lg md:text-2xl font-light max-w-3xl leading-relaxed mb-24">
             Operating a premier digital platform that synchronizes sophisticated user interfaces 
             with secure transaction facilitation services for the global digital asset ecosystem.
         </p>
 
         <div class="grid md:grid-cols-3 gap-8 w-full mb-32">
-            <div class="glass-card p-10 rounded-3xl">
-                <h3 class="text-xs tracking-[0.3em] font-bold text-white uppercase mb-4">Onboarding & UI</h3>
-                <p class="text-[13px] text-slate-500 leading-relaxed">Verified user access through rigorous compliance and intuitive interface design for retail customers in permitted jurisdictions.</p>
+            <div class="mr-glass p-12 rounded-[2.5rem]">
+                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-6">Onboarding & UI</h3>
+                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
+                    "Compliant customer onboarding and intuitive interfaces for retail customers in permitted jurisdictions seeking asset access."
+                </p>
             </div>
             
-            <div class="glass-card p-10 rounded-3xl border-t border-sky-500/30">
-                <h3 class="text-xs tracking-[0.3em] font-bold text-white uppercase mb-4">Transaction Engine</h3>
-                <p class="text-[13px] text-slate-500 leading-relaxed">High-performance infrastructure facilitating exchange activities via integrated networks operated by licensed providers.</p>
+            <div class="mr-glass p-12 rounded-[2.5rem] border-t-2 border-t-sky-500/20">
+                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-6">Transaction Engine</h3>
+                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
+                    "High-performance facilitation enabling verified users to access exchange functionality through integrated licensed infrastructure."
+                </p>
             </div>
 
-            <div class="glass-card p-10 rounded-3xl">
-                <h3 class="text-xs tracking-[0.3em] font-bold text-white uppercase mb-4">Regulated Integration</h3>
-                <p class="text-[13px] text-slate-500 leading-relaxed">Direct synchronization with licensed partner entities for secure asset custody and execution of regulated financial services.</p>
+            <div class="mr-glass p-12 rounded-[2.5rem]">
+                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-6">Partner Integration</h3>
+                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
+                    "Direct synchronization with licensed partner entities for secure asset custody and execution of regulated financial services."
+                </p>
             </div>
         </div>
 
-        <footer class="pt-16 border-t border-white/5 w-full">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
-                <div class="max-w-2xl">
-                    <p class="text-[9px] text-slate-700 tracking-[0.2em] leading-loose uppercase mb-8">
-                        Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial and cryptocurrency services are provided exclusively by licensed partner entities. The company does not directly provide regulated financial services or custody of client funds.
-                    </p>
-                    <a href="mailto:info@mindrock.net" class="text-3xl md:text-5xl font-extralight tracking-[0.1em] hover:text-sky-400 transition-all">
-                        INFO@<span class="text-sky-400">MINDROCK.NET</span>
-                    </a>
-                </div>
-                <div class="text-[10px] tracking-[0.5em] text-slate-800 uppercase pb-2">
-                    &copy; 2026 Mindrock Smart Technology Limited
-                </div>
+        <footer class="w-full pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+            <div class="max-w-2xl">
+                <p class="text-[10px] text-slate-700 tracking-widest uppercase leading-loose mb-10">
+                    Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial and cryptocurrency services are provided exclusively by licensed partner entities. We do not hold client funds directly.
+                </p>
+                <a href="mailto:info@mindrock.net" class="text-3xl md:text-6xl font-extralight tracking-tighter hover:text-sky-400 transition-all">
+                    INFO@<span class="text-sky-400">MINDROCK.NET</span>
+                </a>
+            </div>
+            <div class="text-[10px] tracking-[0.5em] text-slate-800 uppercase">
+                &copy; 2026 Mindrock Smart Tech | Hong Kong
             </div>
         </footer>
     </main>
