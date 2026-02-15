@@ -9,32 +9,27 @@
     <style>
         body { background-color: #030610; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; }
         
-        /* 1. LOGO 强化：背景提亮 + 呼吸感恢复 */
-        .logo-box {
+        /* 1. LOGO 极致放大与背景呼吸感 */
+        .logo-container {
             position: relative;
             display: inline-block;
-            /* 字母背后的光晕背景 */
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 70%);
-            padding: 30px;
+            padding: 40px;
         }
-        
-        .mr-logo-main {
-            height: 80px; /* 恢复之前的大尺寸 */
+        .mr-logo-img {
+            height: 120px; /* 大幅放大 */
             width: auto;
-            /* 强力滤镜：提升亮度并增加蓝色阴影 */
-            filter: brightness(2) drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
-            animation: deep-breathe 4s ease-in-out infinite;
+            filter: brightness(2) drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+            animation: master-breathe 4s ease-in-out infinite;
         }
-
-        @keyframes deep-breathe {
+        @keyframes master-breathe {
             0%, 100% { 
-                filter: brightness(2.5) drop-shadow(0 0 20px rgba(56, 189, 248, 0.5));
+                filter: brightness(2.5) drop-shadow(0 0 30px rgba(56, 189, 248, 0.4));
                 transform: scale(1);
             }
             50% { 
-                /* 峰值亮度：让字母背景感觉瞬间亮起 */
-                filter: brightness(8) drop-shadow(0 0 50px rgba(56, 189, 248, 1));
-                transform: scale(1.02);
+                /* 字母背景提亮的核心：亮度拉高，阴影扩散 */
+                filter: brightness(7) drop-shadow(0 0 60px rgba(56, 189, 248, 0.9));
+                transform: scale(1.05);
             }
         }
 
@@ -47,23 +42,23 @@
 </head>
 <body class="min-h-screen flex flex-col items-center text-center px-8 py-20">
 
-    <header class="mb-20">
-        <div class="logo-box">
-            <img src="logo.png.png" alt="Mindrock" class="mr-logo-main">
+    <header class="mb-12">
+        <div class="logo-container">
+            <img src="logo.png.png" alt="Mindrock" class="mr-logo-img">
         </div>
     </header>
 
     <main class="w-full max-w-6xl">
-        <h1 class="text-white text-5xl md:text-8xl font-extralight tracking-tight leading-[1.2] mb-16">
+        <h1 class="text-white text-3xl md:text-5xl font-extralight tracking-tight leading-tight mb-12">
             Architecting <br>
-            <span class="font-normal">the Future of Digital Flow.</span>
+            the Future of Digital Flow
         </h1>
 
         <div class="mb-16">
-            <h2 class="text-sky-400 text-xl md:text-3xl font-light tracking-[0.3em] uppercase">
+            <h2 class="text-sky-400 text-3xl md:text-5xl font-semibold tracking-wider uppercase">
                 Mindrock Smart Technology Limited
             </h2>
-            <div class="w-40 h-px bg-sky-500/40 mx-auto mt-6"></div>
+            <div class="w-48 h-1 bg-sky-500/50 mx-auto mt-8"></div>
         </div>
 
         <p class="text-slate-400 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed mb-24">
@@ -72,21 +67,21 @@
         </p>
 
         <div class="grid md:grid-cols-3 gap-8 w-full mb-32 text-left">
-            <div class="mr-glass p-12 rounded-[2.5rem]">
+            <div class="mr-glass p-10 rounded-[2.5rem]">
                 <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-6">Onboarding & UI</h3>
                 <p class="text-sm text-slate-500 leading-relaxed font-light italic">
                     "Compliant customer onboarding and intuitive interfaces for verified users."
                 </p>
             </div>
             
-            <div class="mr-glass p-12 rounded-[2.5rem] border-t-2 border-t-sky-400/20">
+            <div class="mr-glass p-10 rounded-[2.5rem] border-t-2 border-t-sky-400/30">
                 <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-6">Transaction Engine</h3>
                 <p class="text-sm text-slate-500 leading-relaxed font-light italic">
                     "High-performance facilitation enabling exchange functionality through integrated infrastructure."
                 </p>
             </div>
 
-            <div class="mr-glass p-12 rounded-[2.5rem]">
+            <div class="mr-glass p-10 rounded-[2.5rem]">
                 <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-6">Partner Integration</h3>
                 <p class="text-sm text-slate-500 leading-relaxed font-light italic">
                     "Direct synchronization with licensed partner entities for secure asset execution."
@@ -98,8 +93,8 @@
             <p class="text-[10px] text-slate-700 tracking-[0.2em] uppercase mb-10 max-w-2xl">
                 Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial services are provided exclusively by licensed partner entities.
             </p>
-            <a href="mailto:info@mindrock.net" class="text-4xl md:text-6xl font-extralight tracking-tighter text-white hover:text-sky-400 transition-all">
-                INFO@<span class="text-sky-400">MINDROCK.NET</span>
+            <a href="mailto:info@mindrock.net" class="text-3xl md:text-5xl font-extralight tracking-tighter text-white hover:text-sky-400 transition-all">
+                INFO@<span class="text-sky-400 font-normal">MINDROCK.NET</span>
             </a>
             <div class="mt-16 text-[10px] tracking-[0.5em] text-slate-800 uppercase">
                 &copy; 2026 Mindrock Smart Tech | Hong Kong
