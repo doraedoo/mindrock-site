@@ -3,57 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindrock | Intelligent Digital Infrastructure</title>
+    <title>Mindrock | Digital Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
         body { background-color: #030610; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; }
         
-        /* 1. Logo 背景大幅提亮 + 呼吸灯效果 */
-        .mr-logo-container {
+        /* 1. LOGO 强化：背景提亮 + 呼吸感恢复 */
+        .logo-box {
             position: relative;
             display: inline-block;
-            /* 增加背景光晕 */
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0) 70%);
-            padding: 20px;
+            /* 字母背后的光晕背景 */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 70%);
+            padding: 30px;
         }
-        .mr-logo {
-            filter: hue-rotate(185deg) brightness(2.5) drop-shadow(0 0 20px #38bdf8);
-            animation: ultra-blink 3.5s ease-in-out infinite;
+        
+        .mr-logo-main {
+            height: 80px; /* 恢复之前的大尺寸 */
+            width: auto;
+            /* 强力滤镜：提升亮度并增加蓝色阴影 */
+            filter: brightness(2) drop-shadow(0 0 15px rgba(56, 189, 248, 0.6));
+            animation: deep-breathe 4s ease-in-out infinite;
         }
-        @keyframes ultra-blink {
-            0%, 100% { filter: brightness(3) drop-shadow(0 0 25px #38bdf8); opacity: 1; }
-            50% { filter: brightness(6) drop-shadow(0 0 60px #38bdf8); opacity: 0.9; }
+
+        @keyframes deep-breathe {
+            0%, 100% { 
+                filter: brightness(2.5) drop-shadow(0 0 20px rgba(56, 189, 248, 0.5));
+                transform: scale(1);
+            }
+            50% { 
+                /* 峰值亮度：让字母背景感觉瞬间亮起 */
+                filter: brightness(8) drop-shadow(0 0 50px rgba(56, 189, 248, 1));
+                transform: scale(1.02);
+            }
         }
 
         .mr-glass {
-            background: rgba(15, 23, 42, 0.4);
+            background: rgba(15, 23, 42, 0.5);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.4s ease;
         }
-        .mr-glass:hover { border: 1px solid rgba(56, 189, 248, 0.3); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center text-center px-8 py-16">
+<body class="min-h-screen flex flex-col items-center text-center px-8 py-20">
 
-    <header class="mb-16">
-        <div class="mr-logo-container">
-            <img src="logo.png.png" alt="Mindrock" class="h-12 md:h-16 w-auto mr-logo">
+    <header class="mb-20">
+        <div class="logo-box">
+            <img src="logo.png.png" alt="Mindrock" class="mr-logo-main">
         </div>
     </header>
 
     <main class="w-full max-w-6xl">
-        <h1 class="text-4xl md:text-7xl font-extralight tracking-tight leading-tight mb-12">
-            Architecting the <br>
-            Future of Digital <span class="text-sky-400 font-normal">Flow.</span>
+        <h1 class="text-white text-5xl md:text-8xl font-extralight tracking-tight leading-[1.2] mb-16">
+            Architecting <br>
+            <span class="font-normal">the Future of Digital Flow.</span>
         </h1>
 
-        <div class="mb-12 flex flex-col items-center">
-            <h2 class="text-sky-400 text-xl md:text-3xl font-light tracking-[0.3em] uppercase mb-4">
+        <div class="mb-16">
+            <h2 class="text-sky-400 text-xl md:text-3xl font-light tracking-[0.3em] uppercase">
                 Mindrock Smart Technology Limited
             </h2>
-            <div class="w-32 h-px bg-sky-500/50"></div>
+            <div class="w-40 h-px bg-sky-500/40 mx-auto mt-6"></div>
         </div>
 
         <p class="text-slate-400 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed mb-24">
@@ -62,38 +72,36 @@
         </p>
 
         <div class="grid md:grid-cols-3 gap-8 w-full mb-32 text-left">
-            <div class="mr-glass p-10 rounded-[2rem]">
-                <h3 class="text-[10px] tracking-[0.3em] font-bold text-white uppercase mb-6">Onboarding & UI</h3>
-                <p class="text-xs text-slate-500 leading-relaxed font-light italic">
-                    "Seamless platform providing customer onboarding and intuitive interfaces for verified users."
+            <div class="mr-glass p-12 rounded-[2.5rem]">
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-6">Onboarding & UI</h3>
+                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
+                    "Compliant customer onboarding and intuitive interfaces for verified users."
                 </p>
             </div>
             
-            <div class="mr-glass p-10 rounded-[2rem] border-t-2 border-t-sky-500/20">
-                <h3 class="text-[10px] tracking-[0.3em] font-bold text-white uppercase mb-6">Transaction Engine</h3>
-                <p class="text-xs text-slate-500 leading-relaxed font-light italic">
+            <div class="mr-glass p-12 rounded-[2.5rem] border-t-2 border-t-sky-400/20">
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-6">Transaction Engine</h3>
+                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
                     "High-performance facilitation enabling exchange functionality through integrated infrastructure."
                 </p>
             </div>
 
-            <div class="mr-glass p-10 rounded-[2rem]">
-                <h3 class="text-[10px] tracking-[0.3em] font-bold text-white uppercase mb-6">Partner Integration</h3>
-                <p class="text-xs text-slate-500 leading-relaxed font-light italic">
-                    "Direct synchronization with licensed partner entities for secure asset custody and execution."
+            <div class="mr-glass p-12 rounded-[2.5rem]">
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-6">Partner Integration</h3>
+                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
+                    "Direct synchronization with licensed partner entities for secure asset execution."
                 </p>
             </div>
         </div>
 
-        <footer class="w-full pt-16 border-t border-white/5 flex flex-col items-center gap-10">
-            <div class="max-w-2xl">
-                <p class="text-[9px] text-slate-700 tracking-[0.2em] uppercase mb-10 leading-loose">
-                    Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial services are provided exclusively by licensed partner entities.
-                </p>
-                <a href="mailto:info@mindrock.net" class="text-3xl md:text-5xl font-extralight tracking-tighter hover:text-sky-400 transition-all">
-                    INFO@<span class="text-sky-400 font-normal">MINDROCK.NET</span>
-                </a>
-            </div>
-            <div class="text-[10px] tracking-[0.5em] text-slate-800 uppercase">
+        <footer class="w-full pt-16 border-t border-white/5 flex flex-col items-center">
+            <p class="text-[10px] text-slate-700 tracking-[0.2em] uppercase mb-10 max-w-2xl">
+                Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial services are provided exclusively by licensed partner entities.
+            </p>
+            <a href="mailto:info@mindrock.net" class="text-4xl md:text-6xl font-extralight tracking-tighter text-white hover:text-sky-400 transition-all">
+                INFO@<span class="text-sky-400">MINDROCK.NET</span>
+            </a>
+            <div class="mt-16 text-[10px] tracking-[0.5em] text-slate-800 uppercase">
                 &copy; 2026 Mindrock Smart Tech | Hong Kong
             </div>
         </footer>
