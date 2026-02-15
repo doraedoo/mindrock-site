@@ -7,38 +7,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* 基础布局：支持手机横屏滚动，PC端保持沉浸 */
         body { 
             background-color: #030610; 
             font-family: 'Inter', sans-serif; 
             color: #f8fafc; 
             margin: 0; 
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            /* 1. 核心修复：强制禁止所有非输入框的光标闪烁 */
+            caret-color: transparent !important;
         }
         
         @media (min-width: 1024px) and (min-height: 700px) {
             body { overflow: hidden; }
         }
 
-        /* LOGO 滤镜与呼吸灯：强制字母与图形同色 */
+        /* 2. 彻底禁用文本选择感，防止浏览器唤起输入光标 */
+        .no-select {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            outline: none !important;
+        }
+
         .mr-logo-img {
-            height: 110px;
-            width: auto;
+            height: 110px; width: auto;
             filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(1) contrast(101%) drop-shadow(0 0 25px rgba(56, 189, 248, 0.4));
             animation: master-breathe 4s ease-in-out infinite;
         }
-
-        @media (min-width: 768px) {
-            .mr-logo-img { height: 160px; } 
-        }
+        @media (min-width: 768px) { .mr-logo-img { height: 160px; } }
 
         @keyframes master-breathe {
             0%, 100% { filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(1) drop-shadow(0 0 30px rgba(56, 189, 248, 0.3)); transform: scale(1); }
             50% { filter: invert(62%) sepia(94%) saturate(600%) hue-rotate(160deg) brightness(1.4) drop-shadow(0 0 60px rgba(56, 189, 248, 0.8)); transform: scale(1.03); }
         }
 
-        /* 玻璃拟态板块 */
         .mr-glass {
             background: rgba(15, 23, 42, 0.4);
             backdrop-filter: blur(20px);
@@ -50,10 +53,8 @@
             border: 1px solid rgba(56, 189, 248, 0.4); 
             transform: translateY(-8px); 
             background: rgba(15, 23, 42, 0.6);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
-        /* 弹窗样式 */
         #modal-overlay {
             display: none;
             position: fixed;
@@ -64,49 +65,36 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+        .modal-active { display: block !important; opacity: 1 !important; }
         .modal-content {
-            position: absolute;
-            top: 50%; left: 50%;
+            position: absolute; top: 50%; left: 50%;
             transform: translate(-50%, -50%);
             width: 90%; max-width: 600px;
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 2rem;
-            padding: 2.5rem;
-        }
-        .modal-active { display: block !important; opacity: 1 !important; }
-
-        /* 极致居中修复 */
-        .company-name-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
+            border-radius: 2rem; padding: 2.5rem;
         }
     </style>
 </head>
 <body class="min-h-screen w-screen flex flex-col items-center justify-between text-center px-6 py-8 md:h-screen md:py-10">
 
     <header class="mt-2 md:mt-4 flex-shrink-0">
-        <div class="inline-block">
-            <img src="logo.png.png" alt="Mindrock" class="mr-logo-img">
-        </div>
+        <img src="logo.png.png" alt="Mindrock" class="mr-logo-img">
     </header>
 
-    <main class="w-full max-w-6xl flex flex-col items-center flex-grow justify-center gap-6 md:gap-10 py-4">
+    <main class="w-full max-w-6xl flex flex-col items-center flex-grow justify-center gap-6 md:gap-10 py-4 no-select">
         <h1 class="text-white text-2xl md:text-4xl font-extralight tracking-tight leading-tight">
             Architecting <br> the Future of Digital Flow
         </h1>
 
-        <div class="w-full flex flex-col items-center select-none"> <div class="company-name-container">
-                <h2 class="text-sky-400 font-semibold tracking-widest uppercase whitespace-nowrap text-center outline-none" 
-                    style="font-size: clamp(0.7rem, 3.8vw, 2.25rem); pointer-events: none;"> Mindrock Smart Technology Limited
+        <div class="w-full flex flex-col items-center">
+            <div class="w-full flex justify-center items-center">
+                <h2 class="text-sky-400 font-semibold tracking-widest uppercase whitespace-nowrap text-center no-select" 
+                    style="font-size: clamp(0.7rem, 3.8vw, 2.25rem); pointer-events: none; -webkit-tap-highlight-color: transparent;">
+                    Mindrock Smart Technology Limited
                 </h2>
             </div>
-            <div class="w-24 md:w-40 h-1 bg-sky-500/40 mt-2 md:mt-3"></div>
-        </div>
-            <div class="w-24 md:w-40 h-1 bg-sky-500/40 mt-2 md:mt-3"></div>
+            <div class="w-24 md:w-40 h-[2px] bg-sky-500/40 mt-2 md:mt-3"></div>
         </div>
 
         <p class="text-slate-400 text-sm md:text-lg font-light max-w-2xl md:max-w-3xl mx-auto leading-relaxed px-4">
@@ -116,68 +104,56 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl text-left px-2">
             <div class="mr-glass p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem]" onclick="openModal('onboarding')">
                 <h3 class="text-[11px] md:text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Onboarding & UI</h3>
-                <p class="text-[14px] md:text-[13px] text-slate-500 italic font-light">"Compliant customer onboarding and intuitive interfaces..."</p>
+                <p class="text-[14px] md:text-[13px] text-slate-500 italic font-light line-clamp-2">"Compliant customer onboarding and intuitive interfaces..."</p>
                 <div class="text-sky-500 text-[9px] mt-4 tracking-widest">DETAILS →</div>
             </div>
             <div class="mr-glass p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-t-2 border-t-sky-400/30" onclick="openModal('engine')">
                 <h3 class="text-[11px] md:text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Transaction Engine</h3>
-                <p class="text-[14px] md:text-[13px] text-slate-500 italic font-light">"High-performance facilitation enabling exchange..."</p>
+                <p class="text-[14px] md:text-[13px] text-slate-500 italic font-light line-clamp-2">"High-performance facilitation enabling exchange..."</p>
                 <div class="text-sky-500 text-[9px] mt-4 tracking-widest">DETAILS →</div>
             </div>
             <div class="mr-glass p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem]" onclick="openModal('partner')">
                 <h3 class="text-[11px] md:text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Partner Integration</h3>
-                <p class="text-[14px] md:text-[13px] text-slate-500 italic font-light">"Direct synchronization with licensed partner entities..."</p>
+                <p class="text-[14px] md:text-[13px] text-slate-500 italic font-light line-clamp-2">"Direct synchronization with licensed partner entities..."</p>
                 <div class="text-sky-500 text-[9px] mt-4 tracking-widest">DETAILS →</div>
             </div>
         </div>
     </main>
 
     <footer class="w-full pt-6 flex-shrink-0 flex flex-col items-center gap-4">
-        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4">
+        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 no-select">
             Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated services are provided by licensed partners.
         </p>
         <a href="mailto:info@mindrock.net" class="text-lg md:text-xl font-light tracking-[0.2em] text-white hover:text-sky-400 transition-all">
             INFO@<span class="text-sky-400">MINDROCK.NET</span>
         </a>
-        <div class="text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase">
+        <div class="mt-2 text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase no-select">
             &copy; 2026 Mindrock Smart Tech | Hong Kong
         </div>
     </footer>
 
     <div id="modal-overlay" onclick="closeModal()">
-        <div class="modal-content text-left" onclick="event.stopPropagation()">
+        <div class="modal-content text-left no-select" onclick="event.stopPropagation()">
             <h2 id="modal-title" class="text-sky-400 text-xl tracking-widest uppercase mb-6 font-semibold"></h2>
-            <div id="modal-body" class="text-slate-300 text-sm md:text-base leading-relaxed space-y-4 font-light"></div>
+            <div id="modal-body" class="text-slate-300 text-sm md:text-base leading-relaxed space-y-4 font-light select-text"></div>
             <button onclick="closeModal()" class="mt-8 text-[10px] text-slate-500 hover:text-white transition-colors tracking-[0.3em] uppercase border border-slate-800 px-4 py-2 rounded-full">Close [×]</button>
         </div>
     </div>
 
     <script>
         const details = {
-            onboarding: {
-                title: "Onboarding & UI Excellence",
-                body: "Our platform features a proprietary KYC/AML integration suite that streamlines user verification for global participants. By combining biological recognition with document authentication, we ensure a frictionless entry point into the digital asset ecosystem while maintaining the highest regulatory standards."
-            },
-            engine: {
-                title: "Advanced Transaction Engine",
-                body: "The Mindrock facilitation engine is built on low-latency microservices, capable of processing complex transaction requests in milliseconds. We act as the technical bridge, synchronizing order flows and ensuring atomic settlement across integrated blockchain networks and traditional ledgers."
-            },
-            partner: {
-                title: "Strategic Partner Integration",
-                body: "Mindrock Smart Technology Limited operates as a pure-play technology provider. We maintain deep-level API integrations with Tier-1 licensed custodians and execution partners. This ensures that while our users enjoy a modern UI, the underlying assets remain within highly regulated, institutional-grade environments."
-            }
+            onboarding: { title: "Onboarding & UI Excellence", body: "Our platform features a proprietary KYC/AML integration suite that streamlines user verification for global participants. By combining biological recognition with document authentication, we ensure a frictionless entry point into the digital asset ecosystem while maintaining the highest regulatory standards." },
+            engine: { title: "Advanced Transaction Engine", body: "The Mindrock facilitation engine is built on low-latency microservices, capable of processing complex transaction requests in milliseconds. We act as the technical bridge, synchronizing order flows and ensuring atomic settlement across integrated blockchain networks and traditional ledgers." },
+            partner: { title: "Strategic Partner Integration", body: "Mindrock Smart Technology Limited operates as a pure-play technology provider. We maintain deep-level API integrations with Tier-1 licensed custodians and execution partners. This ensures that while our users enjoy a modern UI, the underlying assets remain within highly regulated, institutional-grade environments." }
         };
-
         function openModal(type) {
             document.getElementById('modal-title').innerText = details[type].title;
             document.getElementById('modal-body').innerText = details[type].body;
             document.getElementById('modal-overlay').classList.add('modal-active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeModal() {
             document.getElementById('modal-overlay').classList.remove('modal-active');
-            // 恢复滚动逻辑
             const isDesktop = window.innerWidth >= 1024 && window.innerHeight >= 700;
             document.body.style.overflow = isDesktop ? 'hidden' : 'auto';
         }
