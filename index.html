@@ -87,17 +87,19 @@
         </div>
     </main>
 
-    <footer class="w-full pt-6 flex flex-col items-center gap-4">
-        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 no-select leading-relaxed">
-            Disclaimer: Mindrock Smart Technology Limited is a software service provider. Financial services are provided by authorized partners.
-        </p>
-        <a href="mailto:info@mindrock.net" class="text-lg md:text-xl font-light tracking-[0.2em] text-white hover:text-sky-400 transition-all">
-            INFO@<span class="text-sky-400">MINDROCK.NET</span>
-        </a>
-        <div class="mt-2 text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase no-select">
-            &copy; 2026 Mindrock Smart Tech
-        </div>
-    </footer>
+    <footer class="w-full pt-6 flex flex-col items-center gap-4 relative z-50">
+    <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 no-select leading-relaxed">
+        Disclaimer: Mindrock Smart Technology Limited is a software service provider. Financial services are provided by authorized partners.
+    </p>
+    
+    <a href="mailto:info@mindrock.net" class="cursor-pointer text-lg md:text-xl font-light tracking-[0.2em] text-white hover:text-sky-400 transition-all">
+        INFO@<span class="text-sky-400">MINDROCK.NET</span>
+    </a>
+
+    <div class="mt-2 text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase no-select">
+        &copy; 2026 Mindrock Smart Tech
+    </div>
+</footer>
 
     <div id="modal-overlay" class="p-6" onclick="closeModal()">
         <div class="modal-content text-left bg-[#0f172a] p-8 rounded-[2rem] border border-sky-500/30 max-w-xl mx-auto mt-[15vh]" onclick="event.stopPropagation()">
