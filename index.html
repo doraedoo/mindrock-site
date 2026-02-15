@@ -7,26 +7,37 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* 1. 彻底屏蔽光标渲染 */
         * { caret-color: transparent !important; outline: none !important; -webkit-tap-highlight-color: transparent !important; }
+        
         body { background-color: #030610; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; overflow-x: hidden; user-select: none; }
+        
         @media (min-width: 1024px) and (min-height: 700px) { body { overflow: hidden; } }
+
+        /* Logo 呼吸动画 */
         .mr-logo-img {
             height: 110px; width: auto;
             filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(1) contrast(101%) drop-shadow(0 0 25px rgba(56, 189, 248, 0.4));
             animation: master-breathe 4s ease-in-out infinite;
         }
         @media (min-width: 768px) { .mr-logo-img { height: 160px; } }
+
         @keyframes master-breathe {
             0%, 100% { filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(1) drop-shadow(0 0 30px rgba(56, 189, 248, 0.3)); transform: scale(1); }
             50% { filter: invert(62%) sepia(94%) saturate(600%) hue-rotate(160deg) brightness(1.4) drop-shadow(0 0 60px rgba(56, 189, 248, 0.8)); transform: scale(1.03); }
         }
+
+        /* 毛玻璃卡片 */
         .mr-glass {
             background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .mr-glass:hover { transform: translateY(-5px); border-color: rgba(56, 189, 248, 0.4); }
-        #modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 6, 16, 0.95); backdrop-filter: blur(12px); z-index: 100; }
+
+        /* 杂志级两端对齐 */
         .justify-text-block { text-align: justify; text-align-last: justify; text-justify: inter-character; }
+
+        #modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 6, 16, 0.95); backdrop-filter: blur(12px); z-index: 100; }
     </style>
 </head>
 <body class="min-h-screen w-screen flex flex-col items-center justify-between text-center px-6 py-8 md:h-screen md:py-10">
@@ -35,27 +46,23 @@
         <img src="logo.png.png" alt="Mindrock" class="mr-logo-img">
     </header>
 
-    <header class="mt-4 md:mt-10 flex-shrink-0">
-        <img src="logo.png.png" alt="Mindrock" class="mr-logo-img mb-8 md:mb-12">
-    </header>
-
-    <main class="w-full max-w-6xl flex flex-grow flex-col items-center justify-start md:justify-center gap-10 md:gap-14 pt-4 md:-mt-12">
+    <main class="w-full max-w-6xl flex flex-grow flex-col items-center justify-start md:justify-center gap-8 md:gap-10 pt-4 md:-mt-16">
         
-        <h1 class="text-white text-2xl md:text-4xl font-extralight tracking-tight leading-tight">
+        <h1 class="text-white text-2xl md:text-4xl font-extralight tracking-tight leading-tight mt-2 md:mt-0">
             Architecting <br> the Future of Digital Flow
         </h1>
 
         <div class="w-full flex flex-col items-center isolate">
             <div class="relative flex justify-center items-center overflow-hidden">
-                <span class="text-sky-400 font-semibold tracking-[0.35em] md:tracking-[0.5em] uppercase whitespace-nowrap text-center block" 
-                    style="font-size: clamp(0.7rem, 3.5vw, 2.2rem); pointer-events: none;">
+                <span class="text-sky-400 font-semibold tracking-widest uppercase whitespace-nowrap text-center block" 
+                    style="font-size: clamp(0.7rem, 3.8vw, 2.25rem); pointer-events: none;">
                     Mindrock Smart Technology Limited
                 </span>
             </div>
-            <div class="w-48 md:w-96 h-[1px] bg-sky-500/30 mt-4 md:mt-6"></div>
+            <div class="w-24 md:w-40 h-[2px] bg-sky-500/40 mt-2 md:mt-3"></div>
         </div>
 
-        <div class="w-full max-w-[320px] md:max-w-2xl mx-auto px-2 space-y-1 mt-2">
+        <div class="w-full max-w-[320px] md:max-w-2xl mx-auto px-2 space-y-1">
             <p class="text-slate-400 text-[10px] md:text-base font-light justify-text-block">
                 Operating a premier digital platform that synchronizes sophisticated user interfaces with
             </p>
@@ -63,18 +70,6 @@
                 secure transaction facilitation services for the global digital asset ecosystem.
             </p>
         </div>
-        
-        ```
-
----
-
-### 🎨 这样修改的“合规设计学”：
-
-* **视觉上的“合规暗示”**：等边三角形在设计心理学中意味着**“不可撼动”**和**“权威”**。对于正在接受 KYB 审核的香港公司，这种稳重的布局会给审核员一种“这家实体经营规范、架构清晰”的潜意识好感。
-* **物理隔离风险**：通过代码拉开 Logo 与文字的距离，比直接改图更安全。如果以后要更换 Logo，你只需要改这一行代码，而不需要重新设计整张图，灵活性更高。
-* **专业感加持**：加宽的 `tracking`（字间距）是顶级科技/奢侈品牌常用的手法，能瞬间提升 Mindrock 作为“高端技术服务商”的品牌调性。
-
-**目前这个布局在手机和 PC 上都能完美呈现三角形比例。建议你直接保存并上线测试一下。还有其他关于页面细节（比如背景色深度或字体粗细）需要我最后帮你调优的吗？**
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-2 text-left">
             <div class="mr-glass p-6 md:p-8 rounded-[1.5rem]" onclick="openModal('onboarding')">
@@ -93,7 +88,7 @@
     </main>
 
     <footer class="w-full pt-6 flex flex-col items-center gap-4">
-        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 no-select">
+        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 no-select leading-relaxed">
             Disclaimer: Mindrock Smart Technology Limited is a software service provider. Financial services are provided by authorized partners.
         </p>
         <a href="mailto:info@mindrock.net" class="text-lg md:text-xl font-light tracking-[0.2em] text-white hover:text-sky-400 transition-all">
@@ -114,9 +109,18 @@
 
     <script>
         const details = {
-            onboarding: { title: "Onboarding & UI Excellence", body: "Our platform provides a sophisticated front-end layer that streamlines the user journey. By integrating industry-standard tools, we facilitate seamless connectivity between global participants and regulated back-end environments without storing sensitive personal identification data." },
-            engine: { title: "Technical Facilitation", body: "We operate as a high-performance technical bridge. Our engine synchronizes user interaction data with authorized VASP service providers in real-time. Mindrock does not execute trades, manage order books, or handle clearing; we ensure technical instruction flow is secure and stable." },
-            partner: { title: "Licensed Integration", body: "Mindrock Smart Technology Limited is a software technology provider. All financial transactions, asset custody, and fiat-to-crypto conversions are performed exclusively by our licensed partners. We subscribe to their core functionalities via API to deliver a premium interface." }
+            onboarding: { 
+                title: "Onboarding & UI Excellence", 
+                body: "Our platform provides a sophisticated front-end layer that streamlines the user journey. By integrating industry-standard tools, we facilitate seamless connectivity between global participants and regulated back-end environments without directly storing sensitive identification data." 
+            },
+            engine: { 
+                title: "Technical Facilitation", 
+                body: "We operate as a high-performance technical bridge. Our engine synchronizes user interaction data with authorized VASP service providers in real-time. Mindrock does not execute trades, manage order books, or handle clearing; we ensure technical instruction flow is secure and stable." 
+            },
+            partner: { 
+                title: "Licensed Integration", 
+                body: "Mindrock Smart Technology Limited is a software technology provider. All financial transactions, asset custody, and fiat-to-crypto conversions are performed exclusively by our licensed partners. We subscribe to their core functionalities via API to deliver a premium interface to the end-user." 
+            }
         };
         function openModal(type) {
             document.getElementById('modal-title').innerText = details[type].title;
