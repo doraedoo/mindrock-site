@@ -131,9 +131,18 @@
 
     <script>
         const details = {
-            onboarding: { title: "Onboarding & UI Excellence", body: "Our platform features a proprietary KYC/AML integration suite that streamlines user verification for global participants. By combining biological recognition with document authentication, we ensure a frictionless entry point into the digital asset ecosystem while maintaining the highest regulatory standards." },
-            engine: { title: "Advanced Transaction Engine", body: "The Mindrock facilitation engine is built on low-latency microservices, capable of processing complex transaction requests in milliseconds. We act as the technical bridge, synchronizing order flows and ensuring atomic settlement across integrated blockchain networks and traditional ledgers." },
-            partner: { title: "Strategic Partner Integration", body: "Mindrock Smart Technology Limited operates as a pure-play technology provider. We maintain deep-level API integrations with Tier-1 licensed custodians and execution partners. This ensures that while our users enjoy a modern UI, the underlying assets remain within highly regulated, institutional-grade environments." }
+            onboarding: { 
+                title: "Onboarding & UI Excellence", 
+                body: "Our platform provides a sophisticated front-end layer that streamlines the user journey. By integrating industry-standard identity verification tools, we facilitate seamless connectivity between global participants and regulated back-end environments without directly storing sensitive personal identification data." 
+            },
+            engine: { 
+                title: "Technical Facilitation", 
+                body: "We operate as a high-performance technical bridge. Our engine synchronizes user interaction data with authorized VASP service providers in real-time. Mindrock does not execute trades, manage order books, or handle clearing; we ensure that the technical instruction flow is secure, stable, and efficient." 
+            },
+            partner: { 
+                title: "Licensed Integration", 
+                body: "Mindrock Smart Technology Limited is a pure-technology play. All financial transactions, asset custody, and fiat-to-crypto conversions are performed exclusively by our licensed partners. We subscribe to their core functionalities via API to deliver a unified, premium interface to the end-user." 
+            }
         };
         function openModal(type) {
             document.getElementById('modal-title').innerText = details[type].title;
