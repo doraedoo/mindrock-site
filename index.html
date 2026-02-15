@@ -7,14 +7,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* 1. 彻底屏蔽光标渲染 */
-        * { caret-color: transparent !important; outline: none !important; -webkit-tap-highlight-color: transparent !important; }
+        /* 1. 暴力消除光标：强制透明 */
+        * {
+            caret-color: transparent !important;
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+        }
         
-        body { background-color: #030610; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; overflow-x: hidden; user-select: none; }
+        body { 
+            background-color: #030610; 
+            font-family: 'Inter', sans-serif; 
+            color: #f8fafc; 
+            margin: 0; 
+            overflow-x: hidden;
+            user-select: none; /* 防止误触唤起光标 */
+        }
         
-        @media (min-width: 1024px) and (min-height: 700px) { body { overflow: hidden; } }
+        @media (min-width: 1024px) and (min-height: 700px) {
+            body { overflow: hidden; }
+        }
 
-        /* Logo 呼吸动画 */
         .mr-logo-img {
             height: 110px; width: auto;
             filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(1) contrast(101%) drop-shadow(0 0 25px rgba(56, 189, 248, 0.4));
@@ -27,17 +39,30 @@
             50% { filter: invert(62%) sepia(94%) saturate(600%) hue-rotate(160deg) brightness(1.4) drop-shadow(0 0 60px rgba(56, 189, 248, 0.8)); transform: scale(1.03); }
         }
 
-        /* 毛玻璃卡片 */
         .mr-glass {
-            background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05);
-            cursor: pointer; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .mr-glass:hover { transform: translateY(-5px); border-color: rgba(56, 189, 248, 0.4); }
 
-        /* 杂志级两端对齐 */
-        .justify-text-block { text-align: justify; text-align-last: justify; text-justify: inter-character; }
+        #modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(3, 6, 16, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+        }
 
-        #modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 6, 16, 0.95); backdrop-filter: blur(12px); z-index: 100; }
+        /* 杂志级两端对齐排版 */
+        .justify-text-block {
+            text-align: justify;
+            text-align-last: justify;
+            text-justify: inter-character;
+        }
     </style>
 </head>
 <body class="min-h-screen w-screen flex flex-col items-center justify-between text-center px-6 py-8 md:h-screen md:py-10">
@@ -74,33 +99,30 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full px-2 text-left">
             <div class="mr-glass p-6 md:p-8 rounded-[1.5rem]" onclick="openModal('onboarding')">
                 <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Onboarding & UI</h3>
-                <p class="text-[13px] text-slate-500 italic">"Compliant user interaction layers..."</p>
+                <p class="text-[13px] text-slate-500 italic">"Compliant customer onboarding and intuitive interfaces..."</p>
             </div>
             <div class="mr-glass p-6 md:p-8 rounded-[1.5rem] border-t-2 border-t-sky-400/30" onclick="openModal('engine')">
-                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Technical Facilitation</h3>
-                <p class="text-[13px] text-slate-500 italic">"Secure technical instructions flow..."</p>
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Transaction Engine</h3>
+                <p class="text-[13px] text-slate-500 italic">"High-performance facilitation enabling exchange..."</p>
             </div>
             <div class="mr-glass p-6 md:p-8 rounded-[1.5rem]" onclick="openModal('partner')">
-                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Licensed Integration</h3>
-                <p class="text-[13px] text-slate-500 italic">"Connectivity via authorized APIs..."</p>
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-3">Partner Integration</h3>
+                <p class="text-[13px] text-slate-500 italic">"Direct synchronization with licensed partners..."</p>
             </div>
         </div>
     </main>
 
     <footer class="w-full pt-6 flex flex-col items-center gap-4">
-        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 no-select leading-relaxed">
-            Disclaimer: Mindrock Smart Technology Limited is a software service provider. Financial services are provided by authorized partners.
-        </p>
         <a href="mailto:info@mindrock.net" class="text-lg md:text-xl font-light tracking-[0.2em] text-white hover:text-sky-400 transition-all">
             INFO@<span class="text-sky-400">MINDROCK.NET</span>
         </a>
-        <div class="mt-2 text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase no-select">
-            &copy; 2026 Mindrock Smart Tech
+        <div class="text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase">
+            &copy; 2026 Mindrock Smart Tech | Hong Kong
         </div>
     </footer>
 
     <div id="modal-overlay" class="p-6" onclick="closeModal()">
-        <div class="modal-content text-left bg-[#0f172a] p-8 rounded-[2rem] border border-sky-500/30 max-w-xl mx-auto mt-[15vh]" onclick="event.stopPropagation()">
+        <div class="modal-content text-left bg-[#0f172a] p-8 rounded-[2rem] border border-sky-500/30 max-w-xl mx-auto mt-[20vh]" onclick="event.stopPropagation()">
             <h2 id="modal-title" class="text-sky-400 text-xl tracking-widest uppercase mb-4"></h2>
             <div id="modal-body" class="text-slate-300 text-sm leading-relaxed space-y-4 font-light"></div>
             <button onclick="closeModal()" class="mt-8 text-[10px] text-slate-500 hover:text-white tracking-widest uppercase border border-slate-800 px-4 py-2 rounded-full">Close [×]</button>
@@ -109,18 +131,9 @@
 
     <script>
         const details = {
-            onboarding: { 
-                title: "Onboarding & UI Excellence", 
-                body: "Our platform provides a sophisticated front-end layer that streamlines the user journey. By integrating industry-standard tools, we facilitate seamless connectivity between global participants and regulated back-end environments without directly storing sensitive identification data." 
-            },
-            engine: { 
-                title: "Technical Facilitation", 
-                body: "We operate as a high-performance technical bridge. Our engine synchronizes user interaction data with authorized VASP service providers in real-time. Mindrock does not execute trades, manage order books, or handle clearing; we ensure technical instruction flow is secure and stable." 
-            },
-            partner: { 
-                title: "Licensed Integration", 
-                body: "Mindrock Smart Technology Limited is a software technology provider. All financial transactions, asset custody, and fiat-to-crypto conversions are performed exclusively by our licensed partners. We subscribe to their core functionalities via API to deliver a premium interface to the end-user." 
-            }
+            onboarding: { title: "Onboarding & UI Excellence", body: "Our platform features a proprietary KYC/AML integration suite that streamlines user verification for global participants. By combining biological recognition with document authentication, we ensure a frictionless entry point into the digital asset ecosystem while maintaining the highest regulatory standards." },
+            engine: { title: "Advanced Transaction Engine", body: "The Mindrock facilitation engine is built on low-latency microservices, capable of processing complex transaction requests in milliseconds. We act as the technical bridge, synchronizing order flows and ensuring atomic settlement across integrated blockchain networks and traditional ledgers." },
+            partner: { title: "Strategic Partner Integration", body: "Mindrock Smart Technology Limited operates as a pure-play technology provider. We maintain deep-level API integrations with Tier-1 licensed custodians and execution partners. This ensures that while our users enjoy a modern UI, the underlying assets remain within highly regulated, institutional-grade environments." }
         };
         function openModal(type) {
             document.getElementById('modal-title').innerText = details[type].title;
