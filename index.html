@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindrock | Intelligent Systems Architecture</title>
+    <title>Mindrock | Digital Infrastructure & Platform Services</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { 
-            background-color: #030712; 
-            font-family: 'Inter', sans-serif; 
-            color: #f8fafc;
-            overflow-x: hidden;
+        body { background-color: #020617; font-family: 'Inter', sans-serif; color: #f8fafc; overflow-x: hidden; }
+        
+        /* Logo 呼吸闪烁与色彩同步 */
+        .logo-tech {
+            filter: hue-rotate(190deg) brightness(1.8) drop-shadow(0 0 15px rgba(56, 189, 248, 0.5));
         }
-        /* 保持 Logo 原色并增加科技感发光 */
-        .logo-glow {
-            filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.4));
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        .animate-breathe {
+            animation: breathe 4s ease-in-out infinite;
         }
-        .logo-glow:hover {
-            filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.7));
-            transform: scale(1.02);
+        @keyframes breathe {
+            0%, 100% { opacity: 1; filter: brightness(1.8) drop-shadow(0 0 15px rgba(56, 189, 248, 0.5)); }
+            50% { opacity: 0.8; filter: brightness(1.2) drop-shadow(0 0 5px rgba(56, 189, 248, 0.2)); }
         }
-        /* 玻璃质感卡片 */
+
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(20px);
@@ -30,65 +28,74 @@
             transition: all 0.4s ease;
         }
         .glass-card:hover {
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            transform: translateY(-5px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center p-6 lg:p-12">
 
-    <div class="max-w-5xl w-full flex flex-col items-center text-center">
+    <div class="max-w-6xl w-full flex flex-col items-center text-center">
         
-        <div class="mb-16">
-            <img src="logo.png.png" alt="Mindrock" class="h-44 md:h-60 w-auto logo-glow">
+        <div class="mb-12">
+            <img src="logo.png.png" alt="Mindrock" class="h-32 md:h-44 w-auto logo-tech animate-breathe">
         </div>
 
-        <div class="space-y-4 mb-12">
-            <h1 class="text-4xl md:text-7xl font-extralight tracking-tight leading-tight text-white">
-                Architecting the <br>
-                <span class="text-sky-400 font-normal">Future of Digital Flow.</span>
-            </h1>
+        <h1 class="hero-gradient text-5xl md:text-7xl font-extralight tracking-tight mb-8 leading-tight">
+            Architecting the <br>
+            <span class="font-normal italic">Future of Digital Flow.</span>
+        </h1>
+
+        <div class="mb-6">
+            <h2 class="text-sky-400 text-2xl md:text-3xl font-light tracking-[0.15em] uppercase">
+                Mindrock Smart Technology Limited
+            </h2>
         </div>
 
-        <div class="max-w-3xl mb-20 border-l-2 border-sky-500/20 pl-6 md:pl-0 md:border-none">
-            <p class="text-slate-400 text-lg md:text-2xl font-light leading-relaxed tracking-wide">
-                Mindrock Smart Technology Limited delivers mission-critical architectures 
-                and advanced digital consultancy for global enterprises navigating the 
-                complexities of modern technology.
-            </p>
-        </div>
+        <p class="text-slate-400 text-lg md:text-xl font-light mb-16 max-w-4xl leading-relaxed">
+            Operating a premier digital platform that synchronizes sophisticated user interfaces 
+            with secure transaction facilitation services for the global digital asset ecosystem.
+        </p>
 
-        <div class="grid md:grid-cols-3 gap-6 w-full mb-24">
-            <div class="glass-card p-10 rounded-2xl text-left">
-                <div class="text-sky-500 mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <div class="grid md:grid-cols-3 gap-8 w-full mb-20">
+            <div class="glass-card p-10 rounded-[2rem] text-center flex flex-col items-center">
+                <div class="w-10 h-10 mb-6 text-sky-500">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
-                <h3 class="text-xs tracking-[0.3em] font-bold text-white uppercase mb-3">System Integration</h3>
-                <p class="text-xs text-slate-500 leading-relaxed font-light">Deploying resilient backends for seamless multi-jurisdictional operations.</p>
+                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-4">Onboarding & UI</h3>
+                <p class="text-[13px] text-slate-500 leading-relaxed">Verified user access through rigorous compliance protocols and intuitive interface design.</p>
             </div>
             
-            <div class="glass-card p-10 rounded-2xl text-left border-t-2 border-t-sky-500/30">
-                <div class="text-sky-500 mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <div class="glass-card p-10 rounded-[2rem] text-center flex flex-col items-center border-t-2 border-t-sky-500/20">
+                <div class="w-10 h-10 mb-6 text-sky-500">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                 </div>
-                <h3 class="text-xs tracking-[0.3em] font-bold text-white uppercase mb-3">Algorithmic Efficiency</h3>
-                <p class="text-xs text-slate-500 leading-relaxed font-light">Automating complex decision nodes to eliminate operational friction.</p>
+                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-4">Transaction Engine</h3>
+                <p class="text-[13px] text-slate-500 leading-relaxed">High-performance infrastructure facilitating seamless exchange activities via integrated networks.</p>
             </div>
 
-            <div class="glass-card p-10 rounded-2xl text-left">
-                <div class="text-sky-500 mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            <div class="glass-card p-10 rounded-[2rem] text-center flex flex-col items-center">
+                <div class="w-10 h-10 mb-6 text-sky-500">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                 </div>
-                <h3 class="text-xs tracking-[0.3em] font-bold text-white uppercase mb-3">Strategic Consultancy</h3>
-                <p class="text-xs text-slate-500 leading-relaxed font-light">Advising on the intersection of emerging tech and scalability.</p>
+                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-4">Regulated Integration</h3>
+                <p class="text-[13px] text-slate-500 leading-relaxed">Direct synchronization with licensed partner entities for secure asset custody and execution.</p>
             </div>
         </div>
 
-        <div class="w-full pt-12 border-t border-slate-900 flex flex-col items-center">
-            <a href="mailto:info@mindrock.net" class="text-xl tracking-[0.4em] text-white font-extralight hover:text-sky-400 transition-colors mb-6">
-                INFO@MINDROCK.NET
+        <div class="w-full pt-12 border-t border-white/5 flex flex-col items-center gap-8">
+            <p class="text-[10px] text-slate-600 max-w-3xl leading-loose tracking-wider uppercase">
+                Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial services are provided exclusively by licensed partner entities.
+            </p>
+            <a href="mailto:info@mindrock.net" class="group text-2xl tracking-[0.3em] text-white font-extralight hover:text-sky-400 transition-all duration-500">
+                INFO<span class="text-sky-500">@</span>MINDROCK.NET
             </a>
-            <div class="text-[10px] tracking-[0.5em] text-slate-700 uppercase">
+            <div class="text-[9px] tracking-[0.6em] text-slate-800 uppercase">
                 &copy; 2026 Mindrock Smart Technology Limited | Hong Kong
             </div>
         </div>
