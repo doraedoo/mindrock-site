@@ -7,78 +7,88 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #030610; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; overflow: hidden; }
+        /* 禁止滚动，确保一屏显示 */
+        body { 
+            background-color: #030610; 
+            font-family: 'Inter', sans-serif; 
+            color: #f8fafc; 
+            margin: 0; 
+            overflow: hidden; 
+        }
         
-        /* 1. LOGO 极致放大与颜色统一 */
+        /* 1. LOGO 极致放大 + 字母变色（图形同色） */
         .mr-logo-img {
-            height: 160px; /* 极致放大 */
+            height: 180px; /* 继续放大 */
             width: auto;
-            /* 强制将 Logo 颜色调整为与公司名一致的科技蓝 */
-            filter: hue-rotate(185deg) brightness(1.5) drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
+            /* 关键：使用 invert 和 brightness 将原本黑色的字母转为高亮蓝色调 */
+            filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(103%) contrast(101%) drop-shadow(0 0 20px rgba(56, 189, 248, 0.4));
             animation: master-breathe 4s ease-in-out infinite;
         }
+
         @keyframes master-breathe {
-            0%, 100% { filter: brightness(1.8) drop-shadow(0 0 30px rgba(56, 189, 248, 0.3)); transform: scale(1); }
-            50% { filter: brightness(4) drop-shadow(0 0 60px rgba(56, 189, 248, 0.8)); transform: scale(1.03); }
+            0%, 100% { filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(1) drop-shadow(0 0 30px rgba(56, 189, 248, 0.3)); transform: scale(1); }
+            50% { filter: invert(62%) sepia(94%) saturate(600%) hue-rotate(160deg) brightness(1.5) drop-shadow(0 0 60px rgba(56, 189, 248, 0.9)); transform: scale(1.05); }
         }
 
         .mr-glass {
             background: rgba(15, 23, 42, 0.4);
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
         }
+        .mr-glass:hover { border: 1px solid rgba(56, 189, 248, 0.3); }
     </style>
 </head>
-<body class="h-screen w-screen flex flex-col items-center justify-center text-center px-8 overflow-hidden">
+<body class="h-screen w-screen flex flex-col items-center justify-between text-center px-8 py-12">
 
-    <main class="w-full max-w-6xl flex flex-col items-center">
-        <header class="mb-4">
-            <img src="logo.png.png" alt="Mindrock" class="mr-logo-img">
-        </header>
+    <header class="mt-4">
+        <img src="logo.png.png" alt="Mindrock" class="mr-logo-img">
+    </header>
 
-        <h1 class="text-white text-2xl md:text-4xl font-extralight tracking-tight leading-tight mb-6">
+    <main class="w-full max-w-6xl flex flex-col items-center flex-grow justify-center gap-10">
+        <h1 class="text-white text-3xl md:text-5xl font-extralight tracking-tight leading-tight">
             Architecting <br>
             the Future of Digital Flow
         </h1>
 
-        <div class="mb-8">
-            <h2 class="text-sky-400 text-3xl md:text-5xl font-semibold tracking-wider uppercase">
+        <div>
+            <h2 class="text-sky-400 text-4xl md:text-6xl font-bold tracking-wider uppercase">
                 Mindrock Smart Technology Limited
             </h2>
-            <div class="w-32 h-1 bg-sky-500/50 mx-auto mt-4"></div>
+            <div class="w-48 h-1 bg-sky-500/50 mx-auto mt-6"></div>
         </div>
 
-        <p class="text-slate-400 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed mb-10">
+        <p class="text-slate-400 text-base md:text-lg font-light max-w-3xl mx-auto leading-relaxed">
             Operating a premier digital platform that synchronizes sophisticated user interfaces with secure transaction facilitation services for the global digital asset ecosystem.
         </p>
 
-        <div class="grid md:grid-cols-3 gap-6 w-full max-w-5xl mb-12 text-left">
-            <div class="mr-glass p-6 rounded-[1.5rem]">
-                <h3 class="text-[9px] tracking-[0.3em] font-bold text-white uppercase mb-3">Onboarding & UI</h3>
-                <p class="text-[11px] text-slate-500 leading-relaxed font-light italic">"Compliant customer onboarding and intuitive interfaces for verified users."</p>
+        <div class="grid md:grid-cols-3 gap-8 w-full max-w-6xl text-left">
+            <div class="mr-glass p-8 rounded-[2rem]">
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-4">Onboarding & UI</h3>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-light italic">"Compliant customer onboarding and intuitive interfaces for verified users."</p>
             </div>
-            <div class="mr-glass p-6 rounded-[1.5rem] border-t-2 border-t-sky-400/30">
-                <h3 class="text-[9px] tracking-[0.3em] font-bold text-white uppercase mb-3">Transaction Engine</h3>
-                <p class="text-[11px] text-slate-500 leading-relaxed font-light italic">"High-performance facilitation enabling exchange functionality through integrated infrastructure."</p>
+            <div class="mr-glass p-8 rounded-[2rem] border-t-2 border-t-sky-400/30">
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-4">Transaction Engine</h3>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-light italic">"High-performance facilitation enabling exchange functionality through integrated infrastructure."</p>
             </div>
-            <div class="mr-glass p-6 rounded-[1.5rem]">
-                <h3 class="text-[9px] tracking-[0.3em] font-bold text-white uppercase mb-3">Partner Integration</h3>
-                <p class="text-[11px] text-slate-500 leading-relaxed font-light italic">"Direct synchronization with licensed partner entities for secure asset execution."</p>
+            <div class="mr-glass p-8 rounded-[2rem]">
+                <h3 class="text-[10px] tracking-[0.4em] font-bold text-white uppercase mb-4">Partner Integration</h3>
+                <p class="text-[13px] text-slate-500 leading-relaxed font-light italic">"Direct synchronization with licensed partner entities for secure asset execution."</p>
             </div>
         </div>
-
-        <footer class="w-full border-t border-white/5 pt-8 flex flex-col items-center">
-            <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase mb-6 max-w-xl">
-                Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated services are provided by licensed partners.
-            </p>
-            <a href="mailto:info@mindrock.net" class="text-xl md:text-2xl font-light tracking-widest text-white hover:text-sky-400 transition-all">
-                INFO@<span class="text-sky-400">MINDROCK.NET</span>
-            </a>
-            <div class="mt-6 text-[9px] tracking-[0.4em] text-slate-800 uppercase">
-                &copy; 2026 Mindrock Smart Tech | Hong Kong
-            </div>
-        </footer>
     </main>
+
+    <footer class="w-full pt-8 flex flex-col items-center gap-4">
+        <p class="text-[10px] text-slate-700 tracking-[0.2em] uppercase max-w-2xl">
+            Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated services are provided by licensed partners.
+        </p>
+        <a href="mailto:info@mindrock.net" class="text-xl md:text-2xl font-light tracking-widest text-white hover:text-sky-400 transition-all">
+            INFO@<span class="text-sky-400">MINDROCK.NET</span>
+        </a>
+        <div class="text-[9px] tracking-[0.4em] text-slate-800 uppercase">
+            &copy; 2026 Mindrock Smart Tech | Hong Kong
+        </div>
+    </footer>
 
 </body>
 </html>
