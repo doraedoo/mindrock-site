@@ -3,88 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindrock | Digital Infrastructure</title>
+    <title>Mindrock | Intelligent Digital Infrastructure</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --main-blue: #38bdf8; }
-        body { background-color: #030610 !important; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; padding: 0; }
+        body { background-color: #030610; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; }
         
-        /* 1. 终极 Logo 呼吸灯 - 针对蓝色同色深度优化 */
-        .mr-logo-blink {
-            /* 强制同色：调节色相至科技蓝并加高亮度 */
-            filter: hue-rotate(185deg) brightness(2) drop-shadow(0 0 10px var(--main-blue));
-            animation: blink-frame 3s ease-in-out infinite !important;
+        /* 1. Logo 背景大幅提亮 + 呼吸灯效果 */
+        .mr-logo-container {
+            position: relative;
+            display: inline-block;
+            /* 增加背景光晕 */
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0) 70%);
+            padding: 20px;
         }
-
-        @keyframes blink-frame {
-            0%, 100% { filter: hue-rotate(185deg) brightness(2.5) drop-shadow(0 0 15px var(--main-blue)); opacity: 1; }
-            50% { filter: hue-rotate(185deg) brightness(6) drop-shadow(0 0 45px var(--main-blue)); opacity: 0.8; }
+        .mr-logo {
+            filter: hue-rotate(185deg) brightness(2.5) drop-shadow(0 0 20px #38bdf8);
+            animation: ultra-blink 3.5s ease-in-out infinite;
+        }
+        @keyframes ultra-blink {
+            0%, 100% { filter: brightness(3) drop-shadow(0 0 25px #38bdf8); opacity: 1; }
+            50% { filter: brightness(6) drop-shadow(0 0 60px #38bdf8); opacity: 0.9; }
         }
 
         .mr-glass {
             background: rgba(15, 23, 42, 0.4);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.4s ease;
         }
+        .mr-glass:hover { border: 1px solid rgba(56, 189, 248, 0.3); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-start px-8 md:px-20 py-12">
+<body class="min-h-screen flex flex-col items-center text-center px-8 py-16">
 
-    <header class="w-full max-w-7xl mb-24 flex items-center gap-5">
-        <img src="logo.png.png" alt="Mindrock" class="h-10 md:h-12 w-auto mr-logo-blink">
-        <div class="h-6 w-px bg-slate-800"></div>
-        <span class="text-xs tracking-[0.4em] font-light text-slate-400">INTELLIGENT ARCHITECTURE</span>
+    <header class="mb-16">
+        <div class="mr-logo-container">
+            <img src="logo.png.png" alt="Mindrock" class="h-12 md:h-16 w-auto mr-logo">
+        </div>
     </header>
 
-    <main class="w-full max-w-7xl">
-        <h1 class="text-5xl md:text-8xl font-extralight tracking-tight leading-tight mb-8">
+    <main class="w-full max-w-6xl">
+        <h1 class="text-4xl md:text-7xl font-extralight tracking-tight leading-tight mb-12">
             Architecting the <br>
-            <span class="text-sky-400 font-normal">Future of Digital Flow.</span>
+            Future of Digital <span class="text-sky-400 font-normal">Flow.</span>
         </h1>
 
-        <div class="mb-12">
-            <h2 class="text-sky-400 text-2xl md:text-4xl font-light tracking-widest uppercase mb-4">
+        <div class="mb-12 flex flex-col items-center">
+            <h2 class="text-sky-400 text-xl md:text-3xl font-light tracking-[0.3em] uppercase mb-4">
                 Mindrock Smart Technology Limited
             </h2>
-            <div class="w-24 h-1 bg-sky-500/30"></div>
+            <div class="w-32 h-px bg-sky-500/50"></div>
         </div>
 
-        <p class="text-slate-400 text-lg md:text-2xl font-light max-w-3xl leading-relaxed mb-24">
+        <p class="text-slate-400 text-lg md:text-xl font-light max-w-3xl mx-auto leading-relaxed mb-24">
             Operating a premier digital platform that synchronizes sophisticated user interfaces 
             with secure transaction facilitation services for the global digital asset ecosystem.
         </p>
 
-        <div class="grid md:grid-cols-3 gap-8 w-full mb-32">
-            <div class="mr-glass p-12 rounded-[2.5rem]">
-                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-6">Onboarding & UI</h3>
-                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
-                    "Compliant customer onboarding and intuitive interfaces for retail customers in permitted jurisdictions seeking asset access."
+        <div class="grid md:grid-cols-3 gap-8 w-full mb-32 text-left">
+            <div class="mr-glass p-10 rounded-[2rem]">
+                <h3 class="text-[10px] tracking-[0.3em] font-bold text-white uppercase mb-6">Onboarding & UI</h3>
+                <p class="text-xs text-slate-500 leading-relaxed font-light italic">
+                    "Seamless platform providing customer onboarding and intuitive interfaces for verified users."
                 </p>
             </div>
             
-            <div class="mr-glass p-12 rounded-[2.5rem] border-t-2 border-t-sky-500/20">
-                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-6">Transaction Engine</h3>
-                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
-                    "High-performance facilitation enabling verified users to access exchange functionality through integrated licensed infrastructure."
+            <div class="mr-glass p-10 rounded-[2rem] border-t-2 border-t-sky-500/20">
+                <h3 class="text-[10px] tracking-[0.3em] font-bold text-white uppercase mb-6">Transaction Engine</h3>
+                <p class="text-xs text-slate-500 leading-relaxed font-light italic">
+                    "High-performance facilitation enabling exchange functionality through integrated infrastructure."
                 </p>
             </div>
 
-            <div class="mr-glass p-12 rounded-[2.5rem]">
-                <h3 class="text-[11px] tracking-[0.3em] font-bold text-white uppercase mb-6">Partner Integration</h3>
-                <p class="text-sm text-slate-500 leading-relaxed font-light italic">
-                    "Direct synchronization with licensed partner entities for secure asset custody and execution of regulated financial services."
+            <div class="mr-glass p-10 rounded-[2rem]">
+                <h3 class="text-[10px] tracking-[0.3em] font-bold text-white uppercase mb-6">Partner Integration</h3>
+                <p class="text-xs text-slate-500 leading-relaxed font-light italic">
+                    "Direct synchronization with licensed partner entities for secure asset custody and execution."
                 </p>
             </div>
         </div>
 
-        <footer class="w-full pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+        <footer class="w-full pt-16 border-t border-white/5 flex flex-col items-center gap-10">
             <div class="max-w-2xl">
-                <p class="text-[10px] text-slate-700 tracking-widest uppercase leading-loose mb-10">
-                    Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial and cryptocurrency services are provided exclusively by licensed partner entities. We do not hold client funds directly.
+                <p class="text-[9px] text-slate-700 tracking-[0.2em] uppercase mb-10 leading-loose">
+                    Disclaimer: Mindrock Smart Technology Limited provides technology platform services. Regulated financial services are provided exclusively by licensed partner entities.
                 </p>
-                <a href="mailto:info@mindrock.net" class="text-3xl md:text-6xl font-extralight tracking-tighter hover:text-sky-400 transition-all">
-                    INFO@<span class="text-sky-400">MINDROCK.NET</span>
+                <a href="mailto:info@mindrock.net" class="text-3xl md:text-5xl font-extralight tracking-tighter hover:text-sky-400 transition-all">
+                    INFO@<span class="text-sky-400 font-normal">MINDROCK.NET</span>
                 </a>
             </div>
             <div class="text-[10px] tracking-[0.5em] text-slate-800 uppercase">
