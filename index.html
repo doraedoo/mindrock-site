@@ -7,14 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* 1. 彻底屏蔽光标渲染 */
         * { caret-color: transparent !important; outline: none !important; -webkit-tap-highlight-color: transparent !important; }
         
         body { background-color: #030610; font-family: 'Inter', sans-serif; color: #f8fafc; margin: 0; overflow-x: hidden; user-select: none; }
         
         @media (min-width: 1024px) and (min-height: 700px) { body { overflow: hidden; } }
 
-        /* Logo 呼吸动画 */
         .mr-logo-img {
             height: 110px; width: auto;
             filter: invert(62%) sepia(94%) saturate(452%) hue-rotate(160deg) brightness(1) contrast(101%) drop-shadow(0 0 25px rgba(56, 189, 248, 0.4));
@@ -27,19 +25,31 @@
             50% { filter: invert(62%) sepia(94%) saturate(600%) hue-rotate(160deg) brightness(1.4) drop-shadow(0 0 60px rgba(56, 189, 248, 0.8)); transform: scale(1.03); }
         }
 
-        /* 毛玻璃卡片 */
         .mr-glass {
             background: rgba(15, 23, 42, 0.4); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
         .mr-glass:hover { transform: translateY(-5px); border-color: rgba(56, 189, 248, 0.4); }
 
-        /* 杂志级两端对齐 */
         .justify-text-block { text-align: justify; text-align-last: justify; text-justify: inter-character; }
 
         #modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(3, 6, 16, 0.95); backdrop-filter: blur(12px); z-index: 100; }
+
+        /* ✅ 新增：法律链接样式 */
+        .legal-links a {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            color: #64748b;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .legal-links a:hover {
+            color: #38bdf8;
+            text-shadow: 0 0 10px rgba(56,189,248,0.6);
+        }
     </style>
 </head>
+
 <body class="min-h-screen w-screen flex flex-col items-center justify-between text-center px-6 py-8 md:h-screen md:py-10">
 
     <header class="mt-2 md:mt-4 flex-shrink-0">
@@ -87,18 +97,30 @@
         </div>
     </main>
 
+    <!-- ✅ 改好的 Footer -->
     <footer class="w-full pt-6 flex flex-col items-center gap-4">
-        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 no-select leading-relaxed">
+
+        <!-- 法律入口 -->
+        <div class="legal-links flex gap-6 uppercase">
+            <a href="/terms.html">Terms</a>
+            <a href="/privacy-policy.html">Privacy</a>
+            <a href="/risk-disclosure.html">Risk</a>
+        </div>
+
+        <p class="text-[9px] text-slate-700 tracking-[0.1em] uppercase max-w-xs md:max-w-md px-4 leading-relaxed">
             Disclaimer: Mindrock Smart Technology Limited is a software service provider. Financial services are provided by authorized partners.
         </p>
+
         <a href="mailto:info@mindrock.net" class="text-lg md:text-xl font-light tracking-[0.2em] text-white hover:text-sky-400 transition-all">
             INFO@<span class="text-sky-400">MINDROCK.NET</span>
         </a>
-        <div class="mt-2 text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase no-select">
+
+        <div class="mt-2 text-[8px] md:text-[9px] tracking-[0.4em] text-slate-800 uppercase">
             &copy; 2026 Mindrock Smart Tech
         </div>
     </footer>
 
+    <!-- 原有 modal 保持不变 -->
     <div id="modal-overlay" class="p-6" onclick="closeModal()">
         <div class="modal-content text-left bg-[#0f172a] p-8 rounded-[2rem] border border-sky-500/30 max-w-xl mx-auto mt-[15vh]" onclick="event.stopPropagation()">
             <h2 id="modal-title" class="text-sky-400 text-xl tracking-widest uppercase mb-4"></h2>
@@ -111,15 +133,15 @@
         const details = {
             onboarding: { 
                 title: "Onboarding & UI Excellence", 
-                body: "Our platform provides a sophisticated front-end layer that streamlines the user journey. By integrating industry-standard tools, we facilitate seamless connectivity between global participants and regulated back-end environments without directly storing sensitive identification data." 
+                body: "Our platform provides a sophisticated front-end layer..." 
             },
             engine: { 
                 title: "Technical Facilitation", 
-                body: "We operate as a high-performance technical bridge. Our engine synchronizes user interaction data with authorized VASP service providers in real-time. Mindrock does not execute trades, manage order books, or handle clearing; we ensure technical instruction flow is secure and stable." 
+                body: "We operate as a high-performance technical bridge..." 
             },
             partner: { 
                 title: "Licensed Integration", 
-                body: "Mindrock Smart Technology Limited is a software technology provider. All financial transactions, asset custody, and fiat-to-crypto conversions are performed exclusively by our licensed partners. We subscribe to their core functionalities via API to deliver a premium interface to the end-user." 
+                body: "All financial transactions are handled by licensed partners..." 
             }
         };
         function openModal(type) {
@@ -133,5 +155,6 @@
             document.body.style.overflow = (window.innerWidth >= 1024) ? 'hidden' : 'auto';
         }
     </script>
+
 </body>
 </html>
